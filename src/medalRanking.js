@@ -49,16 +49,33 @@ function MedalRanking() {
 
   if (error) return <p>{error}</p>;
 
+  // Obtemos o índice do Brasil se estiver presente
+  const brazilIndex = countries.findIndex(country => country.name === 'Brasil');
+
+  // Cria uma lista com os primeiros países e garante que o Brasil esteja incluído
+  let displayedList = countries.slice(0, displayedCountries);
+
+  // Se o Brasil não está na lista exibida e existe na lista completa, adiciona-o
+  if (brazilIndex >= displayedCountries) {
+    // Adiciona o Brasil na posição correta
+    displayedList.push(countries[brazilIndex]);
+  }
+
   return (
     <div>
       <h1>Ranking de Medalhas</h1>
       <ul>
-        {countries.slice(0, displayedCountries).map(country => ( // Exibe apenas os países com base no estado
-          <li key={country.id}>
-            <img src={country.flag_url} alt={`${country.name} flag`} width="30" />
-            <strong>{country.name}</strong> - Ouro: {country.gold_medals}, Prata: {country.silver_medals}, Bronze: {country.bronze_medals}, Total: {country.total_medals}
-          </li>
-        ))}
+        {displayedList.map((country, index) => {
+          // Calcula a posição real no ranking
+          const realIndex = countries.findIndex(c => c.name === country.name) + 1;
+          return (
+            <li key={country.id}>
+              <strong>{realIndex}. </strong> {/* Exibe a posição real */}
+              <img src={country.flag_url} alt={`${country.name} flag`} width="30" />
+              <strong>{country.name}</strong> - Ouro: {country.gold_medals}, Prata: {country.silver_medals}, Bronze: {country.bronze_medals}, Total: {country.total_medals}
+            </li>
+          );
+        })}
       </ul>
       {displayedCountries < countries.length && ( // Verifica se ainda há mais países para carregar
         <button onClick={loadMoreCountries}>

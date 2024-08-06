@@ -142,7 +142,7 @@ function MedalRanking() {
                         <p>{country.gold_medals}</p>
                       </div>
                       <div className='block '>
-                        <p>{country.bronze_medals}</p>
+                        <p>{country.silver_medals}</p>
                       </div>
                       <div className='block '>
                         <p>{country.bronze_medals}</p>

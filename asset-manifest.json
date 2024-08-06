@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/olimpiedas/static/css/main.91856b2e.css",
+    "main.js": "/olimpiedas/static/js/main.d49b5c0c.js",
+    "index.html": "/olimpiedas/index.html",
+    "static/media/tabler_flag.svg": "/olimpiedas/static/media/tabler_flag.91dff755089a7120d06d7c627c589ee1.svg",
+    "main.91856b2e.css.map": "/olimpiedas/static/css/main.91856b2e.css.map",
+    "main.d49b5c0c.js.map": "/olimpiedas/static/js/main.d49b5c0c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91856b2e.css",
+    "static/js/main.d49b5c0c.js"
+  ]
+}
